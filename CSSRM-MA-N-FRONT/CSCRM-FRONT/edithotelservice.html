@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Hotel Service</title>
+    <link rel="stylesheet" type="text/css" href="edithotelservice.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="hotels.html">Hotels</a></li>
+            <li class="navbar-item"><a href="companies.html">Companies</a></li>
+            <li class="navbar-item"><a href="clients.html">Clients</a></li>
+            <li class="navbar-item"><a href="tours.html">Tours</a></li>
+            <li class="navbar-item"><a href="cartypes.html">Car Types</a></li>
+            <li class="navbar-item"><a href="toursbycartypes.html">Tours By Car Types</a></li>
+        </ul>
+    </div>
+    <div class="edit-hotel-service-content">
+        <h2 class="EditHotelServicePageHead">Edit Hotel Service</h2>
+
+        <div class="client-info">
+            <h3>Client Info</h3>
+            <div class="client-details">
+                <p><strong>Code:</strong> <span id="clientCode">12345</span></p>
+                <p><strong>Name:</strong> <span id="clientName">John</span></p>
+                <p><strong>Surname:</strong> <span id="clientSurname">Doe</span></p>
+                <p><strong>Phone:</strong> <span id="clientPhone">555-1234</span></p>
+            </div>
+        </div>
+
+        <div class="edit-hotel-service-container">
+            <h3>Edit Hotel Service</h3>
+            <div class="edit-hotel-service">
+                <select id="edit-hotel-service-hotelName" class="edit-hotel-service-input">
+                    <option value="" disabled selected>Select Hotel</option>
+                    <option value="Atlas Hotel">Atlas Hotel</option>
+                    <option value="Oasis Resort">Oasis Resort</option>
+                    <option value="Sunset Inn">Sunset Inn</option>
+                    <!-- Diğer oteller buraya eklenecek -->
+                </select>
+                <select id="edit-hotel-service-roomTypeName" class="edit-hotel-service-input">
+                    <option value="" disabled selected>Select Room Type</option>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Suite">Suite</option>
+                    <!-- Diğer oda tipleri buraya eklenecek -->
+                </select>
+                <input type="number" id="edit-hotel-service-roomCount" placeholder="Room Count" class="edit-hotel-service-input" />
+                <input type="number" id="edit-hotel-service-days" placeholder="Days" class="edit-hotel-service-input" />
+                <input type="date" id="edit-hotel-service-dateFrom" class="edit-hotel-service-input" />
+                <input type="date" id="edit-hotel-service-dateTo" class="edit-hotel-service-input" />
+                <button onclick="updateHotelService()" class="service-btn service-btn-primary">Update Service</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dummy data for client and service details
+        const client = {
+            code: '12345',
+            name: 'John',
+            surname: 'Doe',
+            phone: '555-1234'
+        };
+
+        const service = {
+            hotelName: 'Atlas Hotel',
+            roomTypeName: 'Single',
+            roomCount: 2,
+            days: 5,
+            dateFrom: '2023-06-10',
+            dateTo: '2023-06-15'
+        };
+
+        // Populate the fields with existing service data
+        document.getElementById('clientCode').innerText = client.code;
+        document.getElementById('clientName').innerText = client.name;
+        document.getElementById('clientSurname').innerText = client.surname;
+        document.getElementById('clientPhone').innerText = client.phone;
+
+        document.getElementById('edit-hotel-service-hotelName').value = service.hotelName;
+        document.getElementById('edit-hotel-service-roomTypeName').value = service.roomTypeName;
+        document.getElementById('edit-hotel-service-roomCount').value = service.roomCount;
+        document.getElementById('edit-hotel-service-days').value = service.days;
+        document.getElementById('edit-hotel-service-dateFrom').value = service.dateFrom;
+        document.getElementById('edit-hotel-service-dateTo').value = service.dateTo;
+
+        function updateHotelService() {
+            const hotelName = document.getElementById('edit-hotel-service-hotelName').value;
+            const roomTypeName = document.getElementById('edit-hotel-service-roomTypeName').value;
+            const roomCount = document.getElementById('edit-hotel-service-roomCount').value;
+            const days = document.getElementById('edit-hotel-service-days').value;
+            const dateFrom = document.getElementById('edit-hotel-service-dateFrom').value;
+            const dateTo = document.getElementById('edit-hotel-service-dateTo').value;
+
+            if (!hotelName || !roomTypeName || !roomCount || !days || !dateFrom || !dateTo) {
+                alert('All fields are required.');
+                return;
+            }
+
+            fetch('your-api-endpoint', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    HotelName: hotelName,
+                    RoomTypeName: roomTypeName,
+                    RoomCount: parseInt(roomCount),
+                    Days: parseInt(days),
+                    DateFrom: dateFrom,
+                    DateTo: dateTo
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Service updated successfully.');
+                        // Yönlendirme veya başka bir işlem yapılabilir
+                    } else {
+                        alert('Error updating service.');
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Table Export</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
+</head>
+
+<body>
+    <table id="inputTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" class="input-field" placeholder="Name"></td>
+                <td><input type="number" class="input-field" placeholder="Age"></td>
+                <td><input type="email" class="input-field" placeholder="Email"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input-field" placeholder="Name"></td>
+                <td><input type="number" class="input-field" placeholder="Age"></td>
+                <td><input type="email" class="input-field" placeholder="Email"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="exportTableToPDF()" class="export-btn">Export as PDF</button>
+
+    <script>
+        function exportTableToPDF() {
+            var table = document.getElementById("inputTable");
+            var data = [];
+            for (var i = 1; i < table.rows.length; i++) {
+                var rowData = [];
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    rowData.push(table.rows[i].cells[j].children[0].value);
+                }
+                data.push(rowData);
+            }
+
+            var docDefinition = {
+                content: [
+                    { text: 'Input Table Export', style: 'header' },
+                    ' ',
+                    {
+                        table: {
+                            headerRows: 1,
+                            widths: ['*', '*', '*'],
+                            body: [
+                                ['Name', 'Age', 'Email'],
+                                ...data
+                            ]
+                        }
+                    }
+                ],
+                styles: {
+                    header: {
+                        fontSize: 18,
+                        bold: true,
+                        alignment: 'center',
+                        margin: [0, 0, 0, 10]
+                    }
+                }
+            };
+
+            pdfMake.createPdf(docDefinition).download('input_table.pdf');
+        }
+    </script>
+</body>
+
+</html>

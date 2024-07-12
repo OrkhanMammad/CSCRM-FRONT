@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Client Info</title>
+    <link rel="stylesheet" type="text/css" href="editclientinfo.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="hotels.html">Hotels</a></li>
+            <li class="navbar-item"><a href="companies.html">Companies</a></li>
+            <li class="navbar-item"><a href="clients.html">Clients</a></li>
+            <li class="navbar-item"><a href="tours.html">Tours</a></li>
+            <li class="navbar-item"><a href="cartypes.html">Car Types</a></li>
+            <li class="navbar-item"><a href="toursbycartypes.html">Tours By Car Types</a></li>
+        </ul>
+    </div>
+    <div class="edit-client-info-page-content">
+        <h2 class="EditClientInfoPageHead">Edit Client Info</h2>
+        <div class="edit-client-info-container">
+            <div class="edit-client-info-form">
+                <table class="edit-client-info-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Inv Code</th>
+                            <th scope="col">Mail Code</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Sales <br> Amount</th>
+                            <th scope="col">Received</th>
+                            <th scope="col">Payment <br> Situation</th>
+                            <th scope="col">Visa <br> Situation</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Company</th>
+                            <th scope="col">Arrival <br> Date</th>
+                            <th scope="col">Departure <br> Date</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input style="width: 85px;" type="text" id="edit-invoiceCode-input"
+                                    class="edit-clientInfo-client-input" /></td>
+                            <td><input style="width: 85px;" type="text" id="edit-mailCode-input"
+                                    class="edit-clientInfo-client-input" /></td>
+                            <td><input style="width: 105px;" type="text" id="edit-clientName-input"
+                                    class="edit-clientInfo-client-input" />
+                            </td>
+                            <td><input style="width: 105px;" type="text" id="edit-clientSurname-input"
+                                    class="edit-clientInfo-client-input" />
+                            </td>
+                            <td><input style="width: 60px;" type="text" id="edit-salesAmount-input"
+                                    class="edit-clientInfo-client-input" />
+                            </td>
+                            <td><input type="text" style="width: 60px;" id="edit-received-input"
+                                    class="edit-clientInfo-client-input" /></td>
+                            <td>
+                                <select id="edit-paymentSituation-select" class="edit-clientInfo-client-input">
+                                    <option value="received">Received</option>
+                                    <option value="pending">Pending</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="edit-visaSituation-select" class="edit-clientInfo-client-input">
+                                    <option value="yes">Not Incl</option>
+                                    <option value="no">Incl</option>
+                                </select>
+                            </td>
+                            <td><input style="width: 85px;" type="text" id="edit-country-input"
+                                    class="edit-clientInfo-client-input" /></td>
+                            <td>
+                                <select id="edit-company-input" class="edit-clientInfo-client-input">
+                                    <option value="google">Google</option>
+                                    <option value="apple">Apple</option>
+                                </select>
+                            </td>
+                            <td><input type="date" id="edit-arrivalDate-input" class="edit-clientInfo-client-input" />
+                            </td>
+                            <td><input type="date" id="edit-departureDate-input" class="edit-clientInfo-client-input" />
+                            </td>
+                            <td><button onclick="updateClientInfo()"
+                                    class="edit-clientInfoPg-client-btn edit-clientInfoPg-client-btn-update">Update</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dummy data for client info
+        const client = {
+            invoiceCode: 'INV123',
+            mailCode: '123',
+            name: 'John',
+            surname: 'Doe',
+            salesAmount: '500',
+            received: '300',
+            paymentSituation: 'received',
+            visaSituation: 'yes',
+            country: 'Germany',
+            company: 'Google',
+            arrivalDate: '2024-07-02',
+            departureDate: '2024-07-10'
+        };
+
+        // Populate the fields with existing client data
+        document.getElementById('edit-invoiceCode-input').value = client.invoiceCode;
+        document.getElementById('edit-mailCode-input').value = client.mailCode;
+        document.getElementById('edit-clientName-input').value = client.name;
+        document.getElementById('edit-clientSurname-input').value = client.surname;
+        document.getElementById('edit-salesAmount-input').value = client.salesAmount;
+        document.getElementById('edit-received-input').value = client.received;
+        document.getElementById('edit-paymentSituation-select').value = client.paymentSituation;
+        document.getElementById('edit-visaSituation-select').value = client.visaSituation;
+        document.getElementById('edit-country-input').value = client.country;
+        document.getElementById('edit-company-input').value = client.company;
+        document.getElementById('edit-arrivalDate-input').value = client.arrivalDate;
+        document.getElementById('edit-departureDate-input').value = client.departureDate;
+
+        function updateClientInfo() {
+            const invoiceCode = document.getElementById('edit-invoiceCode-input').value;
+            const mailCode = document.getElementById('edit-mailCode-input').value;
+            const name = document.getElementById('edit-clientName-input').value;
+            const surname = document.getElementById('edit-clientSurname-input').value;
+            const salesAmount = document.getElementById('edit-salesAmount-input').value;
+            const received = document.getElementById('edit-received-input').value;
+            const paymentSituation = document.getElementById('edit-paymentSituation-select').value;
+            const visaSituation = document.getElementById('edit-visaSituation-select').value;
+            const country = document.getElementById('edit-country-input').value;
+            const company = document.getElementById('edit-company-input').value;
+            const arrivalDate = document.getElementById('edit-arrivalDate-input').value;
+            const departureDate = document.getElementById('edit-departureDate-input').value;
+
+            if (!name || !surname || !phone) {
+                alert('All fields are required.');
+                return;
+            }
+
+            fetch('your-api-endpoint', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    InvoiceCode: invoiceCode,
+                    MailCode: mailCode,
+                    Name: name,
+                    Surname: surname,
+                    Phone: phone,
+                    SalesAmount: salesAmount,
+                    Received: received,
+                    Pending: pending,
+                    PaymentSituation: paymentSituation,
+                    VisaSituation: visaSituation,
+                    Country: country,
+                    Company: company,
+                    ArrivalDate: arrivalDate,
+                    DepartureDate: departureDate
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Client info updated successfully.');
+                    } else {
+                        alert('Error updating client info.');
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>

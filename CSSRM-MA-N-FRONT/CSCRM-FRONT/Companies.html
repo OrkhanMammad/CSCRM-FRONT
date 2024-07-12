@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Companies</title>
+    <link rel="stylesheet" type="text/css" href="companies.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="hotels.html">Hotels</a></li>
+            <li class="navbar-item"><a href="companies.html">Companies</a></li>
+            <li class="navbar-item"><a href="clients.html">Clients</a></li>
+            <li class="navbar-item"><a href="tours.html">Tours</a></li>
+            <li class="navbar-item"><a href="cartypes.html">Car Types</a></li>
+            <li class="navbar-item"><a href="toursbycartypes.html">Tours By Car Types</a></li>
+        </ul>
+    </div>
+    <div class="companies-page-content">
+        <h2 class="CompaniesPageHead">Companies</h2>
+
+        <div class="companies-page-container">
+            <table class="companies-page-table">
+                <thead class="companies-page-thead">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>Company A</td>
+                        <td>123 Main St, City</td>
+                        <td>555-123-4567</td>
+                        <td>companya@example.com</td>
+                        <td>
+                            <a href='editcompany.html' class="companies-page-companies-btn companies-page-companies-btn-primary">Edit</a>
+                            <button onclick="deleteCompany(this)"
+                                class="companies-page-companies-btn companies-page-companies-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Company B</td>
+                        <td>456 Elm St, Town</td>
+                        <td>555-987-6543</td>
+                        <td>companyb@example.com</td>
+                        <td>
+                            <a href='' class="companies-page-companies-btn companies-page-companies-btn-primary">Edit</a>
+                            <button onclick="deleteCompany(this)"
+                                class="companies-page-companies-btn companies-page-companies-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- Diğer şirketlerin bilgileri buraya gelecek -->
+
+                </tbody>
+            </table>
+
+            <div class="companies-add-container">
+                <h3>Add New Company</h3>
+                <div class="companies-add">
+                    <input type="text" id="add-companyName-input" placeholder="Name" class="companies-page-add-company-input" />
+                    <input type="text" id="add-company-address-input" placeholder="Address" class="companies-page-add-company-input" />
+                    <input type="tel" id="add-company-phone-input" placeholder="Phone Number" class="companies-page-add-company-input" />
+                    <input type="email" id="add-company-Email-input" placeholder="Email" class="companies-page-add-company-input" />
+                    <button onclick="addCompany()" class="companies-page-companies-btn companies-page-companies-btn-add">Add New Company</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function deleteCompany(button) {
+            const confirmDelete = confirm('Are you sure you want to delete this company?');
+            if (confirmDelete) {
+                // Silme işlemi için gerekli kodlar burada olacak
+                alert('Company deleted');
+                // Örneğin, DOM'dan kaldırmak için:
+                // const row = button.closest('tr');
+                // row.parentNode.removeChild(row);
+            }
+        }
+
+        function addCompany() {
+            const name = document.getElementById('add-companyName-input').value;
+            const address = document.getElementById('add-company-address-input').value;
+            const phoneNumber = document.getElementById('add-company-phone-input').value;
+            const email = document.getElementById('add-company-Email-input').value;
+
+            if (!name || !address || !phoneNumber || !email) {
+                alert('All fields are required.');
+                return;
+            }
+
+            fetch('your-api-endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name: name,
+                    Address: address,
+                    PhoneNumber: phoneNumber,
+                    Email: email
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    } else {
+                        alert('Error adding company.');
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>

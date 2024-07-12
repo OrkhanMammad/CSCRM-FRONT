@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurants</title>
+    <link rel="stylesheet" type="text/css" href="restaurants.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="hotels.html">Hotels</a></li>
+            <li class="navbar-item"><a href="companies.html">Companies</a></li>
+            <li class="navbar-item"><a href="clients.html">Clients</a></li>
+            <li class="navbar-item"><a href="tours.html">Tours</a></li>
+            <li class="navbar-item"><a href="cartypes.html">Car Types</a></li>
+            <li class="navbar-item"><a href="toursbycartypes.html">Tours By Car Types</a></li>
+            <li class="navbar-item"><a href="restaurants.html">Restaurants</a></li>
+        </ul>
+    </div>
+    <div class="restaurants-page-content">
+        <h2 class="RestaurantsPageHead">Restaurants</h2>
+
+        <div class="restaurants-page-container">
+            <table class="restaurants-page-restaurants-table">
+                <thead class="restaurants-page-restaurants-thead">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Lunch</th>
+                        <th scope="col">Dinner</th>
+                        <th scope="col">Gala Dinner (Simple)</th>
+                        <th scope="col">Gala Dinner (Local Alc)</th>
+                        <th scope="col">Gala Dinner (Foreign Alc)</th>
+                        <th scope="col">Take Away</th>
+                        <th scope="col">Contact Person</th>
+                        <th scope="col">Contact Phone</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>Fancy Feast</td>
+                        <td>50</td>
+                        <td>80</td>
+                        <td>100</td>
+                        <td>120</td>
+                        <td>150</td>
+                        <td>40</td>
+                        <td>Jane Doe</td>
+                        <td>0123456789</td>
+                        <td>
+                            <a href='editrestaurant.html'
+                                class="restaurants-page-restaurants-btn restaurants-page-restaurants-btn-primary">Edit</a>
+                            <button onclick="deleteRestaurant()"
+                                class="restaurants-page-restaurants-btn restaurants-page-restaurants-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+            <div class="restaurants-page-restaurants-add-container">
+                <h3>Add New Restaurant</h3>
+                <div class="restaurants-add">
+                    <input type="text" id="add-restaurant-name-input" placeholder="Name"
+                        class="restaurants-page-add-restaurant-input" />
+                    <input type="number" id="add-restaurant-lunch-input" placeholder="Lunch"
+                        class="restaurants-page-add-restaurant-input" />
+                    <input type="number" id="add-restaurant-dinner-input" placeholder="Dinner"
+                        class="restaurants-page-add-restaurant-input" />
+                    <input type="number" id="add-restaurant-gala-simple-input" placeholder="Gala Dinner (Simple)"
+                        class="restaurants-page-add-restaurant-input" />
+                    <input type="number" id="add-restaurant-gala-local-input" placeholder="Gala Dinner (Local Alc)"
+                        class="restaurants-page-add-restaurant-input" />
+                    <input type="number" id="add-restaurant-gala-foreign-input" placeholder="Gala Dinner (Foreign Alc)"
+                        class="restaurants-page-add-restaurant-input" />
+                    <input type="number" id="add-restaurant-takeaway-input" placeholder="Take Away"
+                        class="restaurants-page-add-restaurant-input" />
+                    <input type="text" id="add-restaurant-contactName-input" placeholder="Contact Name"
+                        class="restaurants-page-add-restaurant-input" />
+                    <input type="text" id="add-restaurant-contactPhone-input" placeholder="Contact Phone"
+                        class="restaurants-page-add-restaurant-input" />
+                    <button onclick="addRestaurant()"
+                        class="restaurants-page-restaurants-btn restaurants-page-restaurants-btn-add">Add New
+                        Restaurant</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function deleteRestaurant() {
+            const confirmDelete = confirm('Are you sure you want to delete this restaurant?');
+            if (confirmDelete) {
+                // Silme işlemi için gerekli kodlar burada olacak
+                alert('Restaurant deleted');
+            }
+        }
+
+        function addRestaurant() {
+            const name = document.getElementById('add-restaurant-name-input').value;
+            const lunch = document.getElementById('add-restaurant-lunch-input').value;
+            const dinner = document.getElementById('add-restaurant-dinner-input').value;
+            const galaSimple = document.getElementById('add-restaurant-gala-simple-input').value;
+            const galaLocal = document.getElementById('add-restaurant-gala-local-input').value;
+            const galaForeign = document.getElementById('add-restaurant-gala-foreign-input').value;
+            const takeaway = document.getElementById('add-restaurant-takeaway-input').value;
+            const contactName = document.getElementById('add-restaurant-contactName-input').value;
+            const contactPhone = document.getElementById('add-restaurant-contactPhone-input').value;
+
+            if (!name) {
+                alert('Name field cannot be empty.');
+                return;
+            }
+
+            fetch('your-api-endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name: name,
+                    Lunch: parseFloat(lunch),
+                    Dinner: parseFloat(dinner),
+                    Gala_Dinner_Simple: parseFloat(galaSimple),
+                    Gala_Dinner_Local_Alc: parseFloat(galaLocal),
+                    Gala_Dinner_Foreign_Alc: parseFloat(galaForeign),
+                    TakeAway: parseFloat(takeaway),
+                    ContactPerson: contactName,
+                    ContactPhone: contactPhone
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    } else {
+                        alert('Error adding restaurant.');
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>

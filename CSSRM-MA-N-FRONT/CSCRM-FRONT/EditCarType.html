@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Car Type</title>
+    <link rel="stylesheet" href="editcartype.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="hotels.html">Hotels</a></li>
+            <li class="navbar-item"><a href="companies.html">Companies</a></li>
+            <li class="navbar-item"><a href="clients.html">Clients</a></li>
+            <li class="navbar-item"><a href="tours.html">Tours</a></li>
+            <li class="navbar-item"><a href="cartypes.html">Car Types</a></li>
+            <li class="navbar-item"><a href="toursbycartypes.html">Tours By Car Types</a></li>
+        </ul>
+    </div>
+    <div class="car-type-edit-page-content">
+        <div class="car-type-edit-page-container">
+            <h3 class="car-type-edit-page-title">Edit Car Type</h3>
+            <table class="car-type-edit-page-car-type-table">
+                <thead class="car-type-edit-page-car-type-thead">
+                    <tr>
+                        <th>Name</th>
+                        <th>Capacity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="car-type-edit-page-input" value="Compact"></td>
+                        <td><input type="number" class="car-type-edit-page-input" value="4"></td>
+                        <td>
+                            <button id="updateCarTypeBtn"
+                                class="car-type-edit-page-car-type-btn car-type-edit-page-car-type-btn-primary">Update
+                                Car Type</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

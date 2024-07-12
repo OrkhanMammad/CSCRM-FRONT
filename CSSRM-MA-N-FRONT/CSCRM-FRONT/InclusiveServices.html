@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inclusive Services</title>
+    <link rel="stylesheet" type="text/css" href="inclusive.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="hotels.html">Hotels</a></li>
+            <li class="navbar-item"><a href="companies.html">Companies</a></li>
+            <li class="navbar-item"><a href="clients.html">Clients</a></li>
+            <li class="navbar-item"><a href="tours.html">Tours</a></li>
+            <li class="navbar-item"><a href="cartypes.html">Car Types</a></li>
+            <li class="navbar-item"><a href="toursbycartypes.html">Tours By Car Types</a></li>
+            <li class="navbar-item"><a href="inclusiveServices.html">Inclusive Services</a></li>
+        </ul>
+    </div>
+    <div class="inclusive-services-page-content">
+        <h2 class="InclusiveServicesPageHead">Inclusive Services</h2>
+
+        <div class="inclusive-services-page-container">
+            <table class="inclusive-services-page-services-table">
+                <thead class="inclusive-services-page-services-thead">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>Service 1</td>
+                        <td>100</td>
+                        <td>
+                            <a href='editService.html'
+                                class="inclusive-services-page-services-btn inclusive-services-page-services-btn-primary">Edit</a>
+                            <button onclick="deleteService()"
+                                class="inclusive-services-page-services-btn inclusive-services-page-services-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <div class="inclusive-services-page-services-add-container">
+                <h3>Add New Service</h3>
+                <div class="services-add">
+                    <input type="text" id="add-service-name-input" placeholder="Name"
+                        class="inclusive-services-page-add-service-input" />
+                    <input type="number" id="add-service-price-input" placeholder="Price"
+                        class="inclusive-services-page-add-service-input" />
+                    <button onclick="addService()"
+                        class="inclusive-services-page-services-btn inclusive-services-page-services-btn-add">Add New
+                        Service</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function deleteService() {
+            const confirmDelete = confirm('Are you sure you want to delete this service?');
+            if (confirmDelete) {
+                // Silme işlemi için gerekli kodlar burada olacak
+                alert('Service deleted');
+            }
+        }
+
+        function addService() {
+            const name = document.getElementById('add-service-name-input').value;
+            const price = document.getElementById('add-service-price-input').value;
+
+            if (!name) {
+                alert('Name field cannot be empty.');
+                return;
+            }
+
+            fetch('your-api-endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name: name,
+                    Price: parseFloat(price)
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    } else {
+                        alert('Error adding service.');
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Types</title>
+    <link rel="stylesheet" type="text/css" href="cartypes.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="hotels.html">Hotels</a></li>
+            <li class="navbar-item"><a href="companies.html">Companies</a></li>
+            <li class="navbar-item"><a href="clients.html">Clients</a></li>
+            <li class="navbar-item"><a href="tours.html">Tours</a></li>
+            <li class="navbar-item"><a href="cartypes.html">Car Types</a></li>
+            <li class="navbar-item"><a href="toursbycartypes.html">Tours By Car Types</a></li>
+        </ul>
+    </div>
+    <div class="cartypes-page-content">
+        <h2 class="CarTypesPageHead">Car Types</h2>
+
+        <div class="cartypes-page-container">
+            <table class="cartypes-page-cartypes-table">
+                <thead class="cartypes-page-cartypes-thead">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Capacity</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Compact</td>
+                        <td>4</td>
+                        <td>
+                            <a href='editcartype.html'
+                                class="cartypes-page-cartypes-btn cartypes-page-cartypes-btn-primary">Edit</a>
+                            <button onclick="deleteCarType()"
+                                class="cartypes-page-cartypes-btn cartypes-page-cartypes-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sedan</td>
+                        <td>5</td>
+                        <td>
+                            <a href='editcartype.html'
+                                class="cartypes-page-cartypes-btn cartypes-page-cartypes-btn-primary">Edit</a>
+                            <button onclick="deleteCarType()"
+                                class="cartypes-page-cartypes-btn cartypes-page-cartypes-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUV</td>
+                        <td>7</td>
+                        <td>
+                            <a href='editcartype.html'
+                                class="cartypes-page-cartypes-btn cartypes-page-cartypes-btn-primary">Edit</a>
+                            <button onclick="deleteCarType()"
+                                class="cartypes-page-cartypes-btn cartypes-page-cartypes-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Van</td>
+                        <td>9</td>
+                        <td>
+                            <a href='editcartype.html'
+                                class="cartypes-page-cartypes-btn cartypes-page-cartypes-btn-primary">Edit</a>
+                            <button onclick="deleteCarType()"
+                                class="cartypes-page-cartypes-btn cartypes-page-cartypes-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="cartypes-page-cartypes-add-container">
+                <h3>Add New Car Type</h3>
+                <div class="cartypes-add">
+                    <input type="text" id="add-carTypeName-input" placeholder="Name"
+                        class="cartypes-page-add-cartypes-input" />
+                    <input type="number" id="add-carTypeCapacity-input" placeholder="Capacity"
+                        class="cartypes-page-add-cartypes-input" />
+                    <button onclick="addCarType()" class="cartypes-page-cartypes-btn cartypes-page-cartypes-btn-add">Add
+                        New Car Type</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function deleteCarType() {
+            const confirmDelete = confirm('Are you sure you want to delete this car type?');
+            if (confirmDelete) {
+                alert('Car type deleted');
+            }
+        }
+
+        function addCarType() {
+            const name = document.getElementById('add-carTypeName-input').value;
+            const capacity = document.getElementById('add-carTypeCapacity-input').value;
+
+            if (!name) {
+                alert('Name field cannot be empty.');
+                return;
+            }
+
+            fetch('your-api-endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name: name,
+                    Capacity: parseInt(capacity)
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    } else {
+                        alert('Error adding car type.');
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>

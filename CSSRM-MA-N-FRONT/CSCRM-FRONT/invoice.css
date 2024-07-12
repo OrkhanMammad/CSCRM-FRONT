@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+/* NAVBAR STARTS HERE */
+.navbar {
+    width: 170px;
+    height: 100vh;
+    background-color: #2c3e50;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.navbar-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar-item {
+    padding: 15px;
+}
+
+.navbar-item a {
+    text-decoration: none;
+    color: #ecf0f1;
+    display: block;
+}
+
+.navbar-item a:hover {
+    background-color: #34495e;
+    color: white;
+}
+
+/* INVOICE PAGE STARTS HERE */
+/* INVOICE PAGE STYLES */
+
+.invoice-page-content {
+    margin-left: 180px;
+    /* Navbar genişliğiyle aynı yapılabilir */
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.invoice-page-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}

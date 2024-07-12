@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="invoicetest.js"></script>
+
+
+
+    <link rel="stylesheet" href="invoice.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="hotels.html">Hotels</a></li>
+            <li class="navbar-item"><a href="companies.html">Companies</a></li>
+            <li class="navbar-item"><a href="clients.html">Clients</a></li>
+            <li class="navbar-item"><a href="tours.html">Tours</a></li>
+            <li class="navbar-item"><a href="cartypes.html">Car Types</a></li>
+            <li class="navbar-item"><a href="toursbycartypes.html">Tour Prices</a></li>
+        </ul>
+    </div>
+    <div class="invoice-page-content">
+        <div class="invoice-page-container">
+            <div id="section-to-print" style="padding: 50px; border: 1px solid black;">
+                <div class="invoice-main" style="width: 940px; padding: 50px;">
+
+                    <!-- invoice main 1
+                invoice main 1
+                invoice main 1 -->
+
+                    <div style="display: flex; justify-content: space-between; margin-bottom: -20px;"
+                        class="invoice-main-1">
+                        <div style="width: 50%;" class="invoice-main-1.1">
+                            <h4>Caspian Charm LLC</h4>
+                        </div>
+                        <div style="width: 20%;" class="invoice-main-1.2">
+                            <h4>Invoice</h4>
+                        </div>
+                    </div>
+                    <hr style="background-color: black; height: 3px; margin-top: 0px; margin-bottom: 20px;">
+
+                    <!-- invoice main 2
+                invoice main 2
+                invoice main 2 -->
+
+                    <div class="invoice-main-2"
+                        style="width: 100%; height: 100px; max-height: 100px; display: flex; justify-content: space-between; margin-bottom: 30px;">
+                        <div class="invoice-main-2.1"
+                            style="border: 1px solid black; height: 97%; max-height: 97%; width: 38%; display: flex; justify-content: space-between;">
+                            <div class="invoice-main-2.1-left"
+                                style="width: 59%; background-color: #5B9BD5; height: 100%; font-size: 13.5px; padding-left: 5px; ">
+                                <span style="display: block; padding: 5px; color: white; font-size: 13.5px;">Invoice
+                                    No</span>
+                                <span style="display: block; padding: 5px;color: white; font-size: 13.5px;">Phone
+                                    No</span>
+                                <span style="display: block; padding: 5px;color: white; font-size: 13.5px;">Date</span>
+                                <span style="display: block; padding: 5px;color: white; font-size: 13.5px;">Terms ( days
+                                    )</span>
+
+                            </div>
+
+
+                            <div class="invoice-main-2.1-right"
+                                style="width: 41%; background-color: white; height: 100%; font-size: 13px; padding-left: 5px; border-left: 1px solid black; ">
+                                <span style="display: block; padding: 5px; color: black;">CC24\02098</span>
+                                <span style="display: block; padding: 5px;color: black;">77 223 4141</span>
+                                <span style="display: block; padding: 5px;color: black;">7/11/2024</span>
+                                <span style="display: block; padding: 5px;color: black;">30.60.90</span>
+                            </div>
+                        </div>
+
+                        <div class="invoice-main-2.2"
+                            style="border: 1px solid black; height: 97%; max-height: 97%; width: 38%; display: flex; justify-content: space-between;">
+
+
+                            <div class="invoice-main-2.2-left"
+                                style="width: 35%; height: 100%; font-size: 13.5px; padding-left: 5px;">
+                                <img style="width: 100%; height: 95px;"
+                                    src="https://media.licdn.com/dms/image/D4D03AQFY6QvaMW1eAg/profile-displayphoto-shrink_200_200/0/1706795272359?e=2147483647&v=beta&t=xKcDyTramIkIYUKK9DjltGqQp7Z38dQ9gfXixuo7dzE"
+                                    alt="">
+                            </div>
+
+
+
+                            <div class="invoice-main-2.2-right"
+                                style="background-color: #e7e6e667; height: 100%; width: 65%;">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- invoice main 3
+                invoice main 3
+                invoice main 3 -->
+                    <h5 style="margin-bottom: 0px; margin-left: 5px;">Invoice to:</h5>
+                    <div class="invoice-main-3"
+                        style="width: 100%; height: 100px; max-height: 100px; display: flex; justify-content: space-between;">
+
+                        <div class="invoice-main-3.1"
+                            style="border: 1px solid black; height: 97%; max-height: 97%; width: 38%;">
+                            <span
+                                style="height: 15%; width: 97%; display: block; font-size: 13px; margin-top: 6px; border: none; padding-left: 5px;">Sanskar
+                                Travel</span>
+
+                            <span
+                                style="height: 15%; width: 97%; display: block; font-size: 13px; margin-top: 6px; border: none; padding-left: 5px;">U
+                                - 6, Hiral Arcade, Opp- J.K. Tower, Ring Road</span>
+
+                            <span
+                                style="height: 15%; width: 97%; display: block; font-size: 13px; margin-top: 6px; border: none; padding-left: 5px;">91
+                                98241 98481</span>
+
+                            <span
+                                style="height: 15%; width: 97%; display: block; font-size: 13px; margin-top: 6px; border: none; padding-left: 5px;">sanskartravel@ymail.com</span>
+                        </div>
+
+                        <div class="invoice-main-3.2"
+                            style="border: 1px solid black; height: 97%; max-height: 97%; width: 38%;">
+                            <span
+                                style="height: 15%; width: 97%; display: block; font-size: 13px; margin-top: 6px; border: none; padding-left: 5px;">Guest
+                                Name: JAYESHBHAI KANSARA</span>
+
+                            <span
+                                style="height: 15%; width: 97%; display: block; font-size: 13px; margin-top: 6px; border: none; padding-left: 5px;">Guest
+                                Surname: MRUNAL</span>
+
+                            <span
+                                style="height: 15%; width: 97%; display: block; font-size: 13px; margin-top: 6px; border: none; padding-left: 5px;">Guest
+                                Number: 91 98241 98481</span>
+
+                            <span
+                                style="height: 15%; width: 97%; display: block; font-size: 13px; margin-top: 6px; border: none; padding-left: 5px;"></span>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- invoice main 4
+                invoice main 4
+                invoice main 4 -->
+
+
+                    <div class="invoice-main-4">
+                        <h5
+                            style="margin-bottom: 0px; text-align: center; color: white; background-color: #5B9BD5; padding: 3px 0px;">
+                            Flight Details
+                        </h5>
+                        <table style="width: 100%; text-align: center;">
+                            <tr style="border: 2px dotted black; width: 100%;">
+                                <td style="font-size: 13.5px;">Flight Number</td>
+                                <td style="font-size: 13.5px;">Arrival Time</td>
+                                <td style="font-size: 13.5px;">Flight Number</td>
+                                <td style="font-size: 13.5px;">Departure Time</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 13.5px;">
+                                    <span
+                                        style="width: 100%; border: none; text-align: center; display: inline-block;">3L730</span>
+                                </td>
+                                <td style="font-size: 13.5px;">
+                                    <span
+                                        style="width: 100%; border: none; text-align: center; display: inline-block;">12:45</span>
+                                </td>
+                                <td style="font-size: 13.5px;">
+                                    <span
+                                        style="width: 100%; border: none; text-align: center; display: inline-block;">3L731</span>
+                                </td>
+                                <td style="font-size: 13.5px;">
+                                    <span
+                                        style="width: 100%; border: none; text-align: center; display: inline-block;">18:10</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+
+                    <!-- invoice main 5
+                invoice main 5
+                invoice main 5 -->
+
+
+                    <div class="invoice-main-5">
+                        <h5
+                            style="margin: 0px; text-align: center; color: white; background-color: #5B9BD5; padding: 3px 0px;">
+                            Hotel Service
+                        </h5>
+
+                        <div style="display: flex; justify-content: space-between; padding: 0;">
+                            <p
+                                style="width: 40%; text-align: start; font-size: 13px; padding: 0; margin-top: 5px; margin-left: 5px;">
+                                1 Hotel Name:
+                            </p>
+                            <p style="width: 40%; text-align: start; font-size: 13px; padding: 0; margin-top: 5px;">
+                                <span style="font-size: 13px; width: 95%; border: none; display: inline-block;">Marriott
+                                    Hotel Boulevard Baku</span>
+                            </p>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; padding: 0; margin-top: -15px;">
+                            <p
+                                style="width: 40%; text-align: start; font-size: 13px; padding: 0; margin-top: 5px; margin-left: 5px;">
+                                2 Hotel Name:
+                            </p>
+                            <p style="width: 40%; text-align: start; font-size: 13px; padding: 0; margin-top: 5px;">
+                                <span
+                                    style="font-size: 13px; width: 95%; border: none; display: inline-block;">Atlas</span>
+                            </p>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; padding: 0; margin-top: -15px;">
+                            <p
+                                style="width: 40%; text-align: start; font-size: 13px; padding: 0; margin-top: 5px; margin-left: 5px;">
+                                Room Service Type:
+                            </p>
+                            <p style="width: 40%; text-align: start; font-size: 13px; padding: 0; margin-top: 5px;">
+                                <span style="font-size: 13px; width: 95%; border: none; display: inline-block;">Room
+                                    Only</span>
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- invoice main 6
+                invoice main 6
+                invoice main 6 -->
+
+
+                    <div style="margin-top: -10px;" class="invoice-main-6">
+                        <h5
+                            style="margin: 0px; text-align: center; color: white; background-color: #5B9BD5; padding: 3px 0px;">
+                            Land Packages:
+                        </h5>
+                        <div
+                            style="background-color: #5B9BD5; display: flex; justify-content: space-around; height: 18px;">
+                            <span
+                                style="font-size: 13px; font-weight: 600; color: white; width: 15%; text-align: center;">Date</span>
+                            <span
+                                style="font-size: 13px; font-weight: 600; color: white; width: 40%; text-align: center;">Tour
+                                Route</span>
+                            <span
+                                style="font-size: 13px; font-weight: 600; color: white; width: 12%; text-align: center;">Paxs
+                                Size</span>
+                            <span
+                                style="font-size: 13px; font-weight: 600; color: white; width: 12%; text-align: center;">Guide</span>
+                            <span
+                                style="font-size: 13px; font-weight: 600; color: white; width: 20%; text-align: center;">Transport
+                                Type</span>
+                        </div>
+
+                        <!-- Datas start here -->
+                        <div style="display: flex; justify-content: space-around; height: 18px;">
+                            <span
+                                style="width: 15%; text-align: center; border: none; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black; border-left: 1px dotted black;">
+                                5/25/2024
+                            </span>
+                            <span
+                                style="width: 40%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black;">
+                                Transfer
+                            </span>
+                            <span
+                                style="width: 12%; border: none; border-bottom: 1px dotted black; border-left: 1px dotted black; text-align: center; font-size: 12px;">
+                                8+2
+                            </span>
+                            <span
+                                style="width: 12%; border: none; text-align: center; font-size: 12px; border-left: 1px dotted black; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Yes
+                            </span>
+                            <span
+                                style="width: 20%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Mercedes Sprinter
+                            </span>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; height: 18px;">
+                            <span
+                                style="width: 15%; text-align: center; border: none; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black; border-left: 1px dotted black;">
+                                5/25/2024
+                            </span>
+                            <span
+                                style="width: 40%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black;">
+                                Transfer
+                            </span>
+                            <span
+                                style="width: 12%; border: none; border-bottom: 1px dotted black; border-left: 1px dotted black; text-align: center; font-size: 12px;">
+                                8+2
+                            </span>
+                            <span
+                                style="width: 12%; border: none; text-align: center; font-size: 12px; border-left: 1px dotted black; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Yes
+                            </span>
+                            <span
+                                style="width: 20%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Mercedes Sprinter
+                            </span>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; height: 18px;">
+                            <span
+                                style="width: 15%; text-align: center; border: none; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black; border-left: 1px dotted black;">
+                                5/25/2024
+                            </span>
+                            <span
+                                style="width: 40%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black;">
+                                Transfer
+                            </span>
+                            <span
+                                style="width: 12%; border: none; border-bottom: 1px dotted black; border-left: 1px dotted black; text-align: center; font-size: 12px;">
+                                8+2
+                            </span>
+                            <span
+                                style="width: 12%; border: none; text-align: center; font-size: 12px; border-left: 1px dotted black; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Yes
+                            </span>
+                            <span
+                                style="width: 20%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Mercedes Sprinter
+                            </span>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; height: 18px;">
+                            <span
+                                style="width: 15%; text-align: center; border: none; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black; border-left: 1px dotted black;">
+                                5/25/2024
+                            </span>
+                            <span
+                                style="width: 40%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black;">
+                                Transfer
+                            </span>
+                            <span
+                                style="width: 12%; border: none; border-bottom: 1px dotted black; border-left: 1px dotted black; text-align: center; font-size: 12px;">
+                                8+2
+                            </span>
+                            <span
+                                style="width: 12%; border: none; text-align: center; font-size: 12px; border-left: 1px dotted black; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Yes
+                            </span>
+                            <span
+                                style="width: 20%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Mercedes Sprinter
+                            </span>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; height: 18px;">
+                            <span
+                                style="width: 15%; text-align: center; border: none; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black; border-left: 1px dotted black;">
+                                5/25/2024
+                            </span>
+                            <span
+                                style="width: 40%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black;">
+                                Transfer
+                            </span>
+                            <span
+                                style="width: 12%; border: none; border-bottom: 1px dotted black; border-left: 1px dotted black; text-align: center; font-size: 12px;">
+                                8+2
+                            </span>
+                            <span
+                                style="width: 12%; border: none; text-align: center; font-size: 12px; border-left: 1px dotted black; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Yes
+                            </span>
+                            <span
+                                style="width: 20%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Mercedes Sprinter
+                            </span>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; height: 18px;">
+                            <span
+                                style="width: 15%; text-align: center; border: none; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black; border-left: 1px dotted black;">
+                                5/25/2024
+                            </span>
+                            <span
+                                style="width: 40%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black;">
+                                Transfer
+                            </span>
+                            <span
+                                style="width: 12%; border: none; border-bottom: 1px dotted black; border-left: 1px dotted black; text-align: center; font-size: 12px;">
+                                8+2
+                            </span>
+                            <span
+                                style="width: 12%; border: none; text-align: center; font-size: 12px; border-left: 1px dotted black; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Yes
+                            </span>
+                            <span
+                                style="width: 20%; border: none; text-align: center; font-size: 12px; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+                                Mercedes Sprinter
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <!-- invoice main 7
+                invoice main 7
+                invoice main 7 -->
+
+
+                    <div class="invoice-main-7">
+                        <h5
+                            style="margin: 0px; text-align: center; color: white; background-color: #5B9BD5; padding: 3px 0px;">
+                            Price Include:
+                        </h5>
+
+                        <!-- DATAS START HERE -->
+                        <div style="display: flex; justify-content: space-around; height: 18px;">
+                            <span
+                                style="width: 25%; text-align: start; border: none; font-size: 11px; border-bottom: 1px dotted black; border-right: 1px dotted black; border-left: 1px dotted black;">
+                                Taxi for Mud Vulcan
+                            </span>
+                            <span
+                                style="width: 25%; border: none; text-align: start; font-size: 11px; border-bottom: 1px dotted black;">
+                                Gobustan Mud Vulcan
+                            </span>
+                            <span
+                                style="width: 25%; border: none; border-bottom: 1px dotted black; border-left: 1px dotted black; text-align: start; font-size: 11px;">
+
+                            </span>
+                            <span
+                                style="width: 25%; border: none; text-align: start; font-size: 11px; border-left: 1px dotted black; border-bottom: 1px dotted black; border-right: 1px dotted black;">
+
+                            </span>
+                        </div>
+                    </div>
+
+
+
+                    <!-- invoice main 8
+                invoice main 8
+                invoice main 8 -->
+
+                    <div class="invoice-main-8">
+                        <div style="display: flex;">
+                            <div style="width: 75%;">
+                                <h5
+                                    style="margin: 0px; text-align: center; color: white; background-color: #5B9BD5; padding: 3px 0px;">
+                                    Notes
+                                </h5>
+                                <div style="height: 96px; border: 2px black solid;">
+                                    <span
+                                        style="height: 90px; border: none; display: inline-block; width: 99%; overflow-y: auto; font-size: 14px;">
+                                        Hotel Booked by Guests : Wydham Baku 25-27 May / Guba Palace 27-29 May
+                                        Gabala Garden 29-30 May / Parkside Hotel 30May-2 June
+                                    </span>
+                                </div>
+                            </div>
+                            <div style="width: 25%;">
+                                <h5
+                                    style="margin: 0px; text-align: center; color: white; background-color: #5B9BD5; padding: 3px 0px;">
+                                    Price
+                                </h5>
+                                <div style="height: 100px;">
+                                    <div style="display: flex; height: 25px;">
+                                        <span
+                                            style="width: 30%; border: 1px black dotted; font-size: 13px; display: inline-flex; align-items: center;">
+                                            Service
+                                        </span>
+                                        <span
+                                            style="width: 70%; border: 1px black dotted; font-size: 13px; display: inline-flex; align-items: center;">
+                                            $1.780,00
+                                        </span>
+                                    </div>
+                                    <div style="display: flex; height: 25px;">
+                                        <span
+                                            style="width: 30%; border: 1px black dotted; font-size: 13px; display: inline-flex; align-items: center;">
+                                            Taxes
+                                        </span>
+                                        <span
+                                            style="width: 70%; border: 1px black dotted; font-size: 13px; display: inline-flex; align-items: center;">
+                                            $1.780,00
+                                        </span>
+                                    </div>
+                                    <div style="display: flex; height: 25px;">
+                                        <span
+                                            style="width: 30%; border: 1px black dotted; font-size: 13px; display: inline-flex; align-items: center;">
+                                            Pending
+                                        </span>
+                                        <span
+                                            style="width: 70%; border: 1px black dotted; font-size: 13px; display: inline-flex; align-items: center;">
+                                            $1.780,00
+                                        </span>
+                                    </div>
+                                    <div style="display: flex; height: 25px;">
+                                        <span
+                                            style="width: 30%; border: 1px black dotted; font-size: 13px; display: inline-flex; align-items: center;">
+                                            Total
+                                        </span>
+                                        <span
+                                            style="width: 70%; border: 1px black dotted; font-size: 13px; display: inline-flex; align-items: center;">
+                                            $1.780,00
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <!-- invoice main 9
+                invoice main 9
+                invoice main 9 -->
+
+
+                    <div class="invoice-main-9">
+                        <div style="display: flex;">
+                            <div style="width: 65%; border-right: 1px dotted black;">
+                                <h5
+                                    style="margin: 0px; text-align: start; color: white; background-color: #5B9BD5; padding: 3px 0px;">
+                                    Company Details
+                                </h5>
+                            </div>
+                            <div style="width: 35%;">
+                                <h5
+                                    style="margin: 0px; text-align: start; color: white; background-color: #5B9BD5; padding: 3px 0px;">
+                                    Payment Details
+                                </h5>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; border-right: 1px solid black; border-left: 1px solid black;">
+                            <div style="width: 65%; height: 90px; border-right: 1px black dotted; display: flex;">
+                                <div style="width: 38%;">
+                                    <span style="display: block; padding: 5px; color: black; font-size: 11px;">Account
+                                        No. of Beneficiary customer:</span>
+                                    <span style="display: block; padding: 5px; color: black; font-size: 11px;">Account
+                                        with Institution or Beneficiary:</span>
+                                    <span
+                                        style="display: block; padding: 5px; color: black; font-size: 11px;">Correspondent
+                                        No. account:</span>
+                                    <span
+                                        style="display: block; padding: 5px; color: black; font-size: 10.5px;">Correspondent
+                                        bank:</span>
+                                </div>
+
+                                <div style="width: 62%;">
+                                    <span
+                                        style="display: block; width: 98%; font-size: 11px; padding-top: 3px;">AZ21UBAZ28852351640160USD002</span>
+                                    <span style="display: block; width: 98%; font-size: 11px; padding-top: 6px;">UNIBANK
+                                        CB SWIFT address: UBAZAZ22</span>
+                                    <span
+                                        style="display: block; width: 98%; font-size: 11px; padding-top: 5px;">70-55.024.541/001
+                                        IBAN: AT253100007055024541</span>
+                                    <span
+                                        style="display: block; width: 98%; font-size: 9.4px; padding-top: 8px;">RAIFFEISEN
+                                        BANK INTERNATIONAL AG,Vienna, Austria S.W.I.F.T.: RZBAATWW</span>
+                                </div>
+                            </div>
+                            <div style="width: 35%; height: 90px; display: flex;">
+                                <div style="border-right: 1px solid black; width: 40%;">
+                                    <span
+                                        style="display: block; padding: 5px; color: black; font-size: 11px;">Beneficiary
+                                        customer:</span>
+                                    <span
+                                        style="display: block; padding: 5px; color: black; font-size: 11px;">Bank:</span>
+                                    <span
+                                        style="display: block; padding: 5px; color: black; font-size: 11px;">Code:</span>
+                                    <span
+                                        style="display: block; padding: 5px; color: black; font-size: 10.5px;">Mail:</span>
+                                </div>
+                                <div style="width: 60%;">
+                                    <span style="display: block; width: 98%; font-size: 11px; padding-top: 3px;">CASPIAN
+                                        CHARM</span>
+                                    <span style="display: block; width: 98%; font-size: 10px; padding-top: 6px;">(Baku,
+                                        AZ, Azerbaijan) TIN: 1300017201</span>
+                                    <span
+                                        style="display: block; width: 98%; font-size: 11px; padding-top: 5px;">502058</span>
+                                    <span
+                                        style="display: block; width: 98%; font-size: 11px; padding-top: 8px;">info@caspiancharm.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <button onclick="downloadPDF()">PDF Olarak İndir</button>
+
+    </div>
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
